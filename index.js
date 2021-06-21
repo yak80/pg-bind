@@ -36,7 +36,7 @@ function bindQuery(queryString, replaceObj, startIndex = 1) {
     let [binds, values, index] = [new Map, [], startIndex];
 
     // Using String.prototype.replace replace all the params in query pattern
-    let text = queryString.replace(/[:]?:([a-zA-Z_]+)/g, (search, param) => {
+    let text = queryString.replace(/[:]?:([a-zA-Z_]+[a-zA-Z_0-9]*)/g, (search, param) => {
         // Return values that begin as typecast
         if (search.slice(0, 2) === '::') {
             return search;
